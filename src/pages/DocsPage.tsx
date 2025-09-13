@@ -11,6 +11,7 @@ import {
   ExternalLink,
   Sparkles,
   Plug,
+  ChevronRight,
 } from "lucide-react";
 
 type SectionProps = {
@@ -63,26 +64,36 @@ const DocsPage = () => {
 
       <div className="max-w-4xl mx-auto px-6 py-10">
         {/* Quick nav */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-10">
           {[
-            { href: '#overview', label: 'Overview', icon: <SearchIcon className="w-4 h-4" />, hover: 'hover:bg-sky-50 hover:border-sky-200 hover:text-sky-700', iconHover: 'group-hover:text-sky-700' },
-            { href: '#architecture', label: 'Components', icon: <Boxes className="w-4 h-4" />, hover: 'hover:bg-violet-50 hover:border-violet-200 hover:text-violet-700', iconHover: 'group-hover:text-violet-700' },
-            { href: '#routing', label: 'Routing', icon: <RouteIcon className="w-4 h-4" />, hover: 'hover:bg-amber-50 hover:border-amber-200 hover:text-amber-700', iconHover: 'group-hover:text-amber-700' },
-            { href: '#data', label: 'Data Model', icon: <Database className="w-4 h-4" />, hover: 'hover:bg-emerald-50 hover:border-emerald-200 hover:text-emerald-700', iconHover: 'group-hover:text-emerald-700' },
-            { href: '#api', label: 'API (MSW)', icon: <Cloud className="w-4 h-4" />, hover: 'hover:bg-cyan-50 hover:border-cyan-200 hover:text-cyan-700', iconHover: 'group-hover:text-cyan-700' },
-            { href: '#filter', label: 'Search & Filtering', icon: <FilterIcon className="w-4 h-4" />, hover: 'hover:bg-rose-50 hover:border-rose-200 hover:text-rose-700', iconHover: 'group-hover:text-rose-700' },
-            { href: '#async', label: 'Async & UX', icon: <Activity className="w-4 h-4" />, hover: 'hover:bg-indigo-50 hover:border-indigo-200 hover:text-indigo-700', iconHover: 'group-hover:text-indigo-700' },
-            { href: '#actions', label: 'Result Actions', icon: <ExternalLink className="w-4 h-4" />, hover: 'hover:bg-teal-50 hover:border-teal-200 hover:text-teal-700', iconHover: 'group-hover:text-teal-700' },
-            { href: '#style', label: 'Styling & Motion', icon: <Sparkles className="w-4 h-4" />, hover: 'hover:bg-fuchsia-50 hover:border-fuchsia-200 hover:text-fuchsia-700', iconHover: 'group-hover:text-fuchsia-700' },
-            { href: '#extend', label: 'Extending', icon: <Plug className="w-4 h-4" />, hover: 'hover:bg-lime-50 hover:border-lime-200 hover:text-lime-700', iconHover: 'group-hover:text-lime-700' },
+            { href: '#overview', label: 'Overview', icon: <SearchIcon className="w-4 h-4" />, styles: { hover: 'hover:text-sky-800', ring: 'group-hover:ring-sky-300/50', iconBox: 'bg-sky-100 text-sky-700', grad: 'from-sky-300/50 to-sky-100/0' } },
+            { href: '#architecture', label: 'Components', icon: <Boxes className="w-4 h-4" />, styles: { hover: 'hover:text-violet-800', ring: 'group-hover:ring-violet-300/50', iconBox: 'bg-violet-100 text-violet-700', grad: 'from-violet-300/50 to-violet-100/0' } },
+            { href: '#routing', label: 'Routing', icon: <RouteIcon className="w-4 h-4" />, styles: { hover: 'hover:text-amber-800', ring: 'group-hover:ring-amber-300/50', iconBox: 'bg-amber-100 text-amber-700', grad: 'from-amber-300/50 to-amber-100/0' } },
+            { href: '#data', label: 'Data Model', icon: <Database className="w-4 h-4" />, styles: { hover: 'hover:text-emerald-800', ring: 'group-hover:ring-emerald-300/50', iconBox: 'bg-emerald-100 text-emerald-700', grad: 'from-emerald-300/50 to-emerald-100/0' } },
+            { href: '#api', label: 'API (MSW)', icon: <Cloud className="w-4 h-4" />, styles: { hover: 'hover:text-cyan-800', ring: 'group-hover:ring-cyan-300/50', iconBox: 'bg-cyan-100 text-cyan-700', grad: 'from-cyan-300/50 to-cyan-100/0' } },
+            { href: '#filter', label: 'Search & Filtering', icon: <FilterIcon className="w-4 h-4" />, styles: { hover: 'hover:text-rose-800', ring: 'group-hover:ring-rose-300/50', iconBox: 'bg-rose-100 text-rose-700', grad: 'from-rose-300/50 to-rose-100/0' } },
+            { href: '#async', label: 'Async & UX', icon: <Activity className="w-4 h-4" />, styles: { hover: 'hover:text-indigo-800', ring: 'group-hover:ring-indigo-300/50', iconBox: 'bg-indigo-100 text-indigo-700', grad: 'from-indigo-300/50 to-indigo-100/0' } },
+            { href: '#actions', label: 'Result Actions', icon: <ExternalLink className="w-4 h-4" />, styles: { hover: 'hover:text-teal-800', ring: 'group-hover:ring-teal-300/50', iconBox: 'bg-teal-100 text-teal-700', grad: 'from-teal-300/50 to-teal-100/0' } },
+            { href: '#style', label: 'Styling & Motion', icon: <Sparkles className="w-4 h-4" />, styles: { hover: 'hover:text-fuchsia-800', ring: 'group-hover:ring-fuchsia-300/50', iconBox: 'bg-fuchsia-100 text-fuchsia-700', grad: 'from-fuchsia-300/50 to-fuchsia-100/0' } },
+            { href: '#extend', label: 'Extending', icon: <Plug className="w-4 h-4" />, styles: { hover: 'hover:text-lime-800', ring: 'group-hover:ring-lime-300/50', iconBox: 'bg-lime-100 text-lime-700', grad: 'from-lime-300/50 to-lime-100/0' } },
           ].map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              className={`group rounded-lg border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-700 inline-flex items-center gap-2 transition-colors ${l.hover}`}
-            >
-              <span className={`text-zinc-500 transition-colors ${l.iconHover}`}>{l.icon}</span>
-              {l.label}
+            <a key={l.href} href={l.href} className={`group block`}> 
+              {/* gradient border wrapper */}
+              <div className={`relative rounded-2xl p-[1px] transition-transform duration-200 group-hover:-translate-y-0.5`}>
+                <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br opacity-0 group-hover:opacity-100 ${l.styles.grad} transition-opacity`}></div>
+                <div className={`relative rounded-2xl bg-white ring-1 ring-zinc-200 ${l.styles.ring} shadow-sm overflow-hidden`}>
+                  <div className={`flex items-center justify-between gap-3 px-4 py-3 text-sm text-zinc-700 transition-colors ${l.styles.hover}`}>
+                    <span className={`h-8 w-8 rounded-xl grid place-items-center shadow-sm transition-transform group-hover:scale-110 ${l.styles.iconBox}`}>
+                      {l.icon}
+                    </span>
+                    <span className="flex-1 font-medium">{l.label}</span>
+                    <span className="text-zinc-400 group-hover:text-current transition-all">
+                      <ChevronRight className="w-4 h-4 translate-x-0 group-hover:translate-x-0.5 transition-transform" />
+                    </span>
+                    <span className="pointer-events-none absolute left-0 bottom-0 h-0.5 w-0 bg-current group-hover:w-full transition-all duration-300" />
+                  </div>
+                </div>
+              </div>
             </a>
           ))}
         </div>
