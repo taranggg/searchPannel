@@ -1,13 +1,20 @@
 // src/App.tsx
 
 import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import SearchPanel from "./components/SearchPannel";
+import DocsPage from "./pages/DocsPage";
+import DocsButton from "./components/DocsButton";
 
 const App = () => {
   return (
-    <div className="App">
-      <SearchPanel />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<SearchPanel />} />
+        <Route path="/docs" element={<DocsPage />} />
+      </Routes>
+      <DocsButton />
+    </BrowserRouter>
   );
 };
 

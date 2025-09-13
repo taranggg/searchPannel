@@ -6,6 +6,7 @@ import ItemCard from "./ItemCard";
 import FlatList from "./FlatList";
 import { Search, File, User, Settings, Circle } from "lucide-react";
 import ActivityIndicator from "./ActivityIndicator";
+import Tab from "./Tab";
 // import { MOCK, Item } from "./data/mockData";
 
 // Basic fuzzy search filter
@@ -315,22 +316,15 @@ const SearchPanel = () => {
               transition={{ duration: 0.3 }}
             >
               <div className="flex items-center px-5 border-b border-zinc-100 pb-1 relative z-10 bg-white">
-                {tabList.map(({ key, label, icon: Icon, count }) => (
-                  <button
+                {tabList.map(({ key, label, icon, count }) => (
+                  <Tab
                     key={key}
+                    icon={icon as any}
+                    label={label}
+                    count={count}
+                    active={tab === (key as typeof tab)}
                     onClick={() => setTab(key as typeof tab)}
-                    className={`flex items-center gap-1 px-2 py-1 text-base font-medium focus:outline-none relative ${
-                      tab === key ? "text-black" : "text-zinc-400"
-                    }`}
-                    style={{ background: "none", border: "none" }}
-                  >
-                    <Icon className="mr-1 w-5 h-5" strokeWidth={2} />
-                    {label}
-                    <span className="ml-1 text-xs font-normal">{count}</span>
-                    {tab === key && (
-                      <span className="absolute left-0 -bottom-1 w-full h-0.5 bg-black rounded" />
-                    )}
-                  </button>
+                  />
                 ))}
                 {/* Settings Icon */}
                 <div className="ml-auto pr-2 relative">

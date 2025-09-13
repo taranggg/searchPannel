@@ -53,6 +53,11 @@ Built‑in simulations
   - New Tab: opens the item in a new browser tab.
 - Presence dots: green = active, yellow = idle.
 
+## 📖 Documentation
+
+- In the app, click the floating “Docs” button at the bottom‑left, or open `/docs` directly.
+- The docs page explains the architecture, data model, routing, MSW setup, and how to extend the project.
+
 ## 🧱 Project Layout
 
 - `src/components/SearchPannel.tsx`: Panel UI, tabs, settings, debounce, and rendering

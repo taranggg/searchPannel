@@ -22,3 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Local documentation drafts (do not commit)
+docs/
+doc/
