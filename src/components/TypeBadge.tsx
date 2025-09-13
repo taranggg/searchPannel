@@ -1,8 +1,6 @@
-import React from "react";
 import type { Item } from "../data/mockData";
 import { File, Folder, Video, User, MessageCircle, List } from "lucide-react";
 
-// Nicer badge that shows avatars for people & chats and icons for others
 const TypeBadge = ({ item }: { item: Item }) => {
   const renderStatusDot = () => {
     if (!item.status) return null;

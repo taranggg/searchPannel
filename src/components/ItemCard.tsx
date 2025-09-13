@@ -1,9 +1,8 @@
-// ItemCard.tsx
-
-import React, { useState } from "react";
+import { useState } from "react";
 import type { Item } from "../data/mockData";
 import TypeBadge from "./TypeBadge";
 import { Link as LinkIcon, ExternalLink, Check } from "lucide-react";
+
 // Function to highlight matching text (q)
 function highlight(text: string, q: string) {
   if (!q) return text;
@@ -23,14 +22,19 @@ function highlight(text: string, q: string) {
 const ItemCard = ({ item, q }: { item: Item; q: string }) => {
   const [copied, setCopied] = useState(false);
   const url =
-    item.url || `https://example.app/${encodeURIComponent(item.type)}/${encodeURIComponent(item.id)}`;
+    item.url ||
+    `https://example.app/${encodeURIComponent(item.type)}/${encodeURIComponent(
+      item.id
+    )}`;
 
   const handleCopy = async () => {
     try {
       await navigator.clipboard.writeText(url);
       setCopied(true);
       setTimeout(() => setCopied(false), 1200);
-    } catch {}
+    } catch {
+      console.error("Failed to copy to clipboard");
+    }
   };
 
   return (

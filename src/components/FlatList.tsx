@@ -1,4 +1,3 @@
-import React from "react";
 import { motion } from "framer-motion";
 
 type FlatListProps<T> = {
@@ -50,4 +49,3 @@ function FlatList<T>({
 }
 
 export default FlatList;
-

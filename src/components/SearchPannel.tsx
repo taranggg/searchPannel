@@ -93,7 +93,6 @@ const SearchPanel = () => {
   const [showSettings, setShowSettings] = useState(false);
   const settingsButtonRef = React.useRef<HTMLButtonElement | null>(null);
   const settingsPopoverRef = React.useRef<HTMLDivElement | null>(null);
-  const [isUserTyping, setIsUserTyping] = useState(false);
   const typingTimeout = React.useRef<ReturnType<typeof setTimeout> | null>(
     null
   );
@@ -114,11 +113,6 @@ const SearchPanel = () => {
   const [results, setResults] = useState<Item[]>(MOCK);
   useEffect(() => {
     setIsLoading(true);
-    if (typingTimeout.current) clearTimeout(typingTimeout.current);
-    setIsUserTyping(true);
-    typingTimeout.current = setTimeout(() => {
-      setIsUserTyping(false);
-    }, 600); // 600ms after last keystroke, user is not typing
 
     const ctrl = new AbortController();
     const t = setTimeout(async () => {
@@ -319,7 +313,9 @@ const SearchPanel = () => {
                 {tabList.map(({ key, label, icon, count }) => (
                   <Tab
                     key={key}
-                    icon={icon as any}
+                    icon={
+                      icon as React.ComponentType<React.SVGProps<SVGSVGElement>>
+                    }
                     label={label}
                     count={count}
                     active={tab === (key as typeof tab)}

@@ -1,5 +1,3 @@
-import React from "react";
-
 type SkeletonListProps = { count?: number };
 const SkeletonList = ({ count = 5 }: SkeletonListProps) => (
   <div className="divide-y divide-zinc-100">

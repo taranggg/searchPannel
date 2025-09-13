@@ -1,4 +1,3 @@
-import React from "react";
 import { motion } from "framer-motion";
 
 type Props = {
@@ -45,7 +44,8 @@ const ActivityIndicator = ({
           inset: 0,
           borderRadius: "50%",
           [sweepVar]: "120deg",
-          background: `conic-gradient(${color} var(--sweep), transparent 0)` as any,
+          background:
+            `conic-gradient(${color} var(--sweep), transparent 0)` as any,
           WebkitMask: mask as any,
           mask: mask as any,
         }}
@@ -63,14 +63,24 @@ const ActivityIndicator = ({
           borderRadius: "50%",
           opacity: 0.6,
           [sweepVar2]: "80deg",
-          background: `conic-gradient(${secondaryColor} var(--sweep2), transparent 0)` as any,
+          background:
+            `conic-gradient(${secondaryColor} var(--sweep2), transparent 0)` as any,
           WebkitMask: mask as any,
           mask: mask as any,
         }}
         animate={{ rotate: -360, [sweepVar2]: ["60deg", "120deg", "60deg"] }}
         transition={{
-          rotate: { duration: duration * 1.15, repeat: Infinity, ease: "linear" },
-          [sweepVar2]: { duration, repeat: Infinity, ease: "easeInOut", delay: 0.05 },
+          rotate: {
+            duration: duration * 1.15,
+            repeat: Infinity,
+            ease: "linear",
+          },
+          [sweepVar2]: {
+            duration,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 0.05,
+          },
         }}
       />
     </div>
