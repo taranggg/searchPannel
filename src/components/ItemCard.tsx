@@ -49,8 +49,10 @@ const ItemCard = ({ item, q }: { item: Item; q: string }) => {
         <button
           onClick={handleCopy}
           title="Copy link"
-          className={`w-8 h-8 rounded-lg grid place-items-center border text-zinc-600 hover:bg-zinc-50 active:scale-[0.98] ${
-            copied ? "border-emerald-500 text-emerald-600" : "border-zinc-200"
+          className={`w-8 h-8 rounded-lg grid place-items-center border text-zinc-600 hover:bg-zinc-100 focus-visible:bg-zinc-100 active:scale-[0.98] transition-colors ${
+            copied
+              ? "border-emerald-500 text-emerald-600"
+              : "border-transparent hover:border-zinc-300 focus-visible:border-zinc-400"
           }`}
         >
           {copied ? (
@@ -64,7 +66,7 @@ const ItemCard = ({ item, q }: { item: Item; q: string }) => {
           target="_blank"
           rel="noreferrer noopener"
           title="Open in new tab"
-          className="pl-2 pr-2 h-8 rounded-lg flex items-center gap-1 text-zinc-600 border border-zinc-200 hover:bg-zinc-50 active:scale-[0.98]"
+          className="px-2 h-8 rounded-lg flex items-center gap-1 text-zinc-600 border border-transparent hover:border-zinc-300 focus-visible:border-zinc-400 hover:bg-zinc-100 focus-visible:bg-zinc-100 active:scale-[0.98] transition-colors"
         >
           <ExternalLink className="w-4 h-4" />
           <span className="hidden md:inline text-sm">New Tab</span>
