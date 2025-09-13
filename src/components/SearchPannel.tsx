@@ -15,13 +15,16 @@ function filterItems(q: string, items: Item[]) {
   return items
     .map((it) => {
       const hay = (it.title + " " + (it.subtitle || "")).toLowerCase();
-      const score =
-        (hay.startsWith(s) ? 3 : 0) +
-        (hay.includes(s) ? 1 : 0) +
-        (it.type === "people" && s.length > 1 ? 0.2 : 0);
-      return { it, score };
+      const matches = hay.includes(s);
+      let score = 0;
+      if (hay.startsWith(s)) score += 3;
+      if (matches) score += 1;
+      // Only boost people results when there is an actual match
+      if (matches && it.type === "people" && s.length > 1) score += 0.2;
+      return { it, score, matches };
     })
-    .filter((x) => x.score > 0 || x.it.title.toLowerCase().includes(s))
+    // Require a real text match; otherwise don't include the item
+    .filter((x) => x.matches && x.score > 0)
     .sort((a, b) => b.score - a.score)
     .map((x) => x.it);
 }
