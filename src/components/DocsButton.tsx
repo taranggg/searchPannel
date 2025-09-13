@@ -9,13 +9,12 @@ const DocsButton = () => {
   return (
     <Link
       to="/docs"
-      className="fixed left-4 bottom-4 z-50 inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border border-zinc-200 bg-white/90 backdrop-blur text-zinc-700 shadow-sm hover:bg-zinc-100"
+      className="group fixed left-4 bottom-4 z-50 inline-flex items-center gap-2 px-4 py-2 rounded-lg text-zinc-300 backdrop-blur transition-all duration-200 ease-out hover:text-yellow-900 hover:shadow-lg hover:bg-yellow-100/40 active:scale-95 hover:border hover:border-yellow-200 focus:outline-none focus:ring-2 focus:ring-yellow-300/60 "
     >
-      <BookOpen className="w-4 h-4" />
-      <span className="text-sm">Docs</span>
+      <BookOpen className="w-5 h-5 text-zinc-300 group-hover:text-yellow-900 transition-colors duration-200" />
+      <span className="text-base font-medium tracking-wide">Docs</span>
     </Link>
   );
 };
 
 export default DocsButton;
-

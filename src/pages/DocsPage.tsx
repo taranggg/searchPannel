@@ -50,11 +50,12 @@ const Section = ({
   </section>
 );
 
+// border-zinc-100 bg-white/70
 const DocsPage = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-zinc-50">
+    <div className="min-h-screen bg-gradient-to-b from-purple-50 to-purple-300">
       {/* Hero */}
-      <div className="border-b border-zinc-100 bg-white/70 backdrop-blur">
+      <div className="border-b  backdrop-blur shadow-sm bg-gradient-to-b from-teal-100/60 to-teal-200/30">
         <div className="max-w-4xl mx-auto px-6 py-8 flex items-center justify-between">
           <div>
             <h1 className="text-3xl font-bold text-zinc-900 tracking-tight">
@@ -74,14 +75,14 @@ const DocsPage = () => {
               <span className="px-2 py-1 rounded-full bg-amber-50 text-amber-700 border border-amber-100">
                 MSW (API Mock)
               </span>
-              <span className="px-2 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-100">
+              <span className="px-2 py-1 rounded-full bg-rose-50 text-rose-700 border border-rose-100">
                 Lucide Icons
               </span>
             </div>
           </div>
           <Link
             to="/"
-            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border border-zinc-200 bg-white text-zinc-700 shadow-sm hover:bg-zinc-100"
+            className="inline-flex items-center  border border-emerald-500/60 gap-2 px-3 py-1.5 rounded-lg  text-zinc-700 shadow-lg hover:bg-emerald-100/40 hover:backdrop-blur-lg hover:border-emerald-200/60 transition-colors"
           >
             Try the Search Panel
           </Link>
@@ -206,13 +207,13 @@ const DocsPage = () => {
             <a key={l.href} href={l.href} className={`group block`}>
               {/* gradient border wrapper */}
               <div
-                className={`relative rounded-2xl p-[1px] transition-transform duration-200 group-hover:-translate-y-0.5`}
+                className={`relative rounded-2xl p-[1px] transition-transform duration-200 group-hover:-translate-y-0.5 `}
               >
                 <div
                   className={`absolute inset-0 rounded-2xl bg-gradient-to-br opacity-0 group-hover:opacity-100 ${l.styles.grad} transition-opacity`}
                 ></div>
                 <div
-                  className={`relative rounded-2xl bg-white ring-1 ring-zinc-200 ${l.styles.ring} shadow-sm overflow-hidden`}
+                  className={`relative rounded-2xl glassmorphism-quicklink ring-1 ring-zinc-200 ${l.styles.ring} shadow-sm overflow-hidden`}
                 >
                   <div
                     className={`flex items-center justify-between gap-3 px-4 py-3 text-sm text-zinc-700 transition-colors ${l.styles.hover}`}
@@ -293,7 +294,7 @@ const DocsPage = () => {
             </li>
           </ul>
           <h3>Hierarchy</h3>
-          <pre className="whitespace-pre-wrap text-sm bg-zinc-50 rounded-lg p-3 border border-zinc-200">{`App
+          <pre className="whitespace-pre-wrap text-sm bg-zinc-50 rounded-lg p-3 border border-zinc-200 shadow-md">{`App
 └─ Router
    ├─ / → SearchPannel
    │   ├─ Header (Search + Spinner)
@@ -345,7 +346,7 @@ const DocsPage = () => {
             </li>
           </ul>
           <h3>Example</h3>
-          <pre className="whitespace-pre-wrap text-sm bg-zinc-50 rounded-lg p-3 border border-zinc-200">{`{
+          <pre className="whitespace-pre-wrap text-sm bg-zinc-50 rounded-lg p-3 border border-zinc-200 shadow-md">{`{
   "id": "p1",
   "type": "people",
   "title": "Randall Johnsson",
@@ -555,7 +556,7 @@ const DocsPage = () => {
           icon={<FolderTree className="w-4 h-4" />}
           accentClasses="bg-zinc-100 text-zinc-700 border-zinc-200"
         >
-          <pre className="whitespace-pre-wrap text-sm bg-zinc-50 rounded-lg p-3 border border-zinc-200">{`src/
+          <pre className="whitespace-pre-wrap text-sm bg-zinc-50 rounded-lg p-3 border border-zinc-200 shadow-md">{`src/
   components/
     ActivityIndicator.tsx
     DocsButton.tsx

@@ -252,7 +252,7 @@ const SearchPanel = () => {
   }, [showSettings]);
 
   return (
-    <div className="w-full min-h-screen bg-red-100  flex items-center justify-center p-6">
+    <div className="w-full min-h-screen flex items-center justify-center p-6 bg-gradient-to-b from-rose-100 to-rose-900">
       <motion.div
         className="rounded-2xl bg-white shadow-xl ring-1 ring-black/5"
         initial="collapsed"
