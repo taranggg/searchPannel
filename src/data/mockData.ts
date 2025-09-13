@@ -15,6 +15,8 @@ export interface Item {
   status?: "active" | "idle";
   // Optional avatar image for people
   avatar?: string;
+  // Optional deep link for the item
+  url?: string;
 }
 
 export const MOCK: Item[] = [
