@@ -282,7 +282,7 @@ const SearchPanel = () => {
             value={q}
             onChange={(e) => setQ(e.target.value)}
             placeholder={isSearching ? "Search…" : "Searching is easier"}
-            className={`flex-1 outline-none text-zinc-900 placeholder:text-zinc-400 ${
+            className={`flex-1 outline-none text-zinc-900 placeholder:text-zinc-400 font-light ${
               isSearching ? "text-lg" : "text-2xl bg-transparent"
             }`}
             style={{ border: "none", boxShadow: "none" }}
@@ -292,7 +292,7 @@ const SearchPanel = () => {
               <span className="border border-zinc-300 rounded-md px-2 py-0.5 text-base font-mono bg-zinc-50">
                 s
               </span>
-              <span>quick access</span>
+              <span className="text-sm font-light">quick access</span>
             </div>
           )}
           {isSearching && q && (
