@@ -13,6 +13,8 @@ export interface Item {
   title: string;
   subtitle?: string;
   status?: "active" | "idle";
+  // Optional avatar image for people
+  avatar?: string;
 }
 
 export const MOCK: Item[] = [
@@ -23,6 +25,7 @@ export const MOCK: Item[] = [
     title: "Randall Johnsson",
     subtitle: "Active now",
     status: "active",
+    avatar: "https://i.pravatar.cc/64?img=11",
   },
   {
     id: "p2",
@@ -30,6 +33,7 @@ export const MOCK: Item[] = [
     title: "Kristinge Karand",
     subtitle: "Active 2d ago",
     status: "idle",
+    avatar: "https://i.pravatar.cc/64?img=32",
   },
   {
     id: "p3",
@@ -37,6 +41,7 @@ export const MOCK: Item[] = [
     title: "Dana Patel",
     subtitle: "Active 5m ago",
     status: "active",
+    avatar: "https://i.pravatar.cc/64?img=5",
   },
   {
     id: "p4",
@@ -44,6 +49,7 @@ export const MOCK: Item[] = [
     title: "Miguel Santos",
     subtitle: "Active 1h ago",
     status: "idle",
+    avatar: "https://i.pravatar.cc/64?img=15",
   },
   {
     id: "p5",
@@ -51,6 +57,7 @@ export const MOCK: Item[] = [
     title: "Lin Mei",
     subtitle: "Active yesterday",
     status: "idle",
+    avatar: "https://i.pravatar.cc/64?img=47",
   },
 
   // Files
@@ -131,24 +138,32 @@ export const MOCK: Item[] = [
     type: "chats",
     title: "Team Standup",
     subtitle: "You: Pushing fix in 5 mins",
+    avatar: "https://i.pravatar.cc/64?img=64",
+    status: "active",
   },
   {
     id: "c2",
     type: "chats",
     title: "Design Review",
     subtitle: "Lin: New mock ups ready",
+    avatar: "https://i.pravatar.cc/64?img=23",
+    status: "idle",
   },
   {
     id: "c3",
     type: "chats",
     title: "Finance",
     subtitle: "Miguel: Invoice approved",
+    avatar: "https://i.pravatar.cc/64?img=8",
+    status: "idle",
   },
   {
     id: "c4",
     type: "chats",
     title: "Random",
     subtitle: "Dana: That was hilarious 😂",
+    avatar: "https://i.pravatar.cc/64?img=19",
+    status: "active",
   },
 
   // Lists

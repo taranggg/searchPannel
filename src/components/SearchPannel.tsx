@@ -12,21 +12,23 @@ import ActivityIndicator from "./ActivityIndicator";
 function filterItems(q: string, items: Item[]) {
   if (!q.trim()) return items;
   const s = q.toLowerCase();
-  return items
-    .map((it) => {
-      const hay = (it.title + " " + (it.subtitle || "")).toLowerCase();
-      const matches = hay.includes(s);
-      let score = 0;
-      if (hay.startsWith(s)) score += 3;
-      if (matches) score += 1;
-      // Only boost people results when there is an actual match
-      if (matches && it.type === "people" && s.length > 1) score += 0.2;
-      return { it, score, matches };
-    })
-    // Require a real text match; otherwise don't include the item
-    .filter((x) => x.matches && x.score > 0)
-    .sort((a, b) => b.score - a.score)
-    .map((x) => x.it);
+  return (
+    items
+      .map((it) => {
+        const hay = (it.title + " " + (it.subtitle || "")).toLowerCase();
+        const matches = hay.includes(s);
+        let score = 0;
+        if (hay.startsWith(s)) score += 3;
+        if (matches) score += 1;
+        // Only boost people results when there is an actual match
+        if (matches && it.type === "people" && s.length > 1) score += 0.2;
+        return { it, score, matches };
+      })
+      // Require a real text match; otherwise don't include the item
+      .filter((x) => x.matches && x.score > 0)
+      .sort((a, b) => b.score - a.score)
+      .map((x) => x.it)
+  );
 }
 
 const SEARCH_TYPES = [
@@ -247,7 +249,7 @@ const SearchPanel = () => {
           // Clip internal content to panel shape; popover may be cut
           overflow: "hidden",
           // Only enforce a taller min-height when searching
-          minHeight: isSearching ? 300 : undefined,
+          minHeight: isSearching ? 350 : undefined,
         }}
       >
         {/* Header */}
@@ -324,15 +326,7 @@ const SearchPanel = () => {
                     ref={settingsButtonRef}
                     aria-label="Settings"
                     onClick={() => {
-                      setShowSettings((v) => {
-                        const next = !v;
-                        if (next) {
-                          console.log("Settings modal opened");
-                        } else {
-                          console.log("Settings modal closed");
-                        }
-                        return next;
-                      });
+                      setShowSettings((v) => !v);
                     }}
                     className="focus:outline-none"
                   >
