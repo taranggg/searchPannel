@@ -236,8 +236,6 @@ const SearchPanel = () => {
     };
   }, [showSettings]);
 
-  // (Removed portal version of settings popover per request)
-
   return (
     <div className="w-full min-h-screen bg-red-100  flex items-center justify-center p-6">
       <motion.div
@@ -357,7 +355,16 @@ const SearchPanel = () => {
                               key={type.key}
                               className={`flex items-center gap-3 px-1 py-2 rounded-lg transition-colors cursor-pointer hover:bg-zinc-100`}
                             >
-                              <Icon className="w-5 h-5" strokeWidth={2} />
+                              <Icon
+                                className={`w-5 h-5 ${
+                                  enabledTypes[
+                                    type.key as keyof typeof enabledTypes
+                                  ]
+                                    ? "text-black"
+                                    : "text-zinc-400"
+                                }`}
+                                strokeWidth={2}
+                              />
                               <span
                                 className={`flex-1 text-base ${
                                   enabledTypes[
