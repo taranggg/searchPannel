@@ -1,1 +1,4 @@
 @import "tailwindcss";
+
+/* Smooth anchor scrolling for Docs page */
+html { scroll-behavior: smooth; }
