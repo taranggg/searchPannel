@@ -21,6 +21,30 @@ Delightful, modern search UI with tabs, fuzzy matching, avatars with presence, a
 
 Open the local URL from the terminal, then start typing to search. Use the gear icon to enable/disable result types.
 
+## 🧪 API Simulation (No Backend Needed)
+
+This project uses Mock Service Worker (MSW) to simulate an API in development.
+
+- Endpoint: `GET /api/items?q=...`
+- Files: `src/mocks/handlers.ts`, `src/mocks/browser.ts`, `src/main.tsx`
+- Behavior: Handlers respond with filtered mock data and a small delay to mimic network.
+
+How it works
+- In dev, `src/main.tsx` starts MSW before rendering the app.
+- `SearchPannel.tsx` calls `fetch('/api/items?q=…')`.
+- If MSW isn’t running for any reason, it safely falls back to local filtering.
+
+Extend it
+- Add more endpoints (e.g., `/api/items/:id`) in `src/mocks/handlers.ts`.
+- Simulate errors or different latencies via `delay()` and status codes.
+
+Built‑in simulations
+- `q=network` → Network error (request fails, triggers UI fallback)
+- `q=error` → 500 Server Error JSON
+- `q=empty` → 200 OK with `[]`
+- `q=timeout` → 3s delayed response
+- `?latency=1500` → Override delay (in ms) for any query
+
 ## 🧭 Usage Tips
 
 - Type to filter results across all enabled types.

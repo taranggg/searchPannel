@@ -118,12 +118,26 @@ const SearchPanel = () => {
     typingTimeout.current = setTimeout(() => {
       setIsUserTyping(false);
     }, 600); // 600ms after last keystroke, user is not typing
-    const t = setTimeout(() => {
-      setResults(filterItems(q, MOCK));
-      setIsLoading(false);
-      prevQ.current = q;
-    }, 450);
+
+    const ctrl = new AbortController();
+    const t = setTimeout(async () => {
+      try {
+        const res = await fetch(`/api/items?q=${encodeURIComponent(q)}`, {
+          signal: ctrl.signal,
+        });
+        if (!res.ok) throw new Error("network");
+        const data: Item[] = await res.json();
+        setResults(data);
+      } catch {
+        // Fallback to local filter if MSW isn't running
+        setResults(filterItems(q, MOCK));
+      } finally {
+        setIsLoading(false);
+        prevQ.current = q;
+      }
+    }, 300);
     return () => {
+      ctrl.abort();
       clearTimeout(t);
       if (typingTimeout.current) clearTimeout(typingTimeout.current);
     };
